@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>AC-VC, Audio examples</title>
+</head>
+
+<body onload="load()">
+
+
+    <h1 id="ac-vc-almost-causal-voice-conversion-">AC-VC (Almost Causal Voice Conversion)</h1>
+    <p><em>Damien Ronssin, Milos Cernak</em></p>
+    <p>Here are some voice conversion examples.
+        Each time, the source utterance, a target speaker utterance, AC-VC conversion and Baseline conversion are
+        shown. </p>
+
+    <table id="audio_table" style="width:100%">
+        <tr>
+            <td><b>Source utterance</b></td>
+            <td><b>Target speaker example</b></td>
+            <td><b>AC-VC</b></td>
+            <td><b>Baseline</b></td>
+        </tr>
+    </table>
+
+
+<script type="text/javascript">
+
+
+String.prototype.format = String.prototype.f = function() {
+    var s = this,
+        i = arguments.length;
+    while (i--) {
+        s = s.replace(new RegExp('\\{' + i + '\\}', 'gm'), arguments[i]);
+    }
+    return s;
+};
+
+function generate_row(source_audio, target_audio, acvc_audio, baseline_audio){
+    var tr = document.createElement('tr');
+    tr.innerHTML = '<td><audio controls><source src={0} type="audio/wav">Your browser does not support the audio element.</audio></td>' +
+        '<td><audio controls><source src={1} type="audio/wav"/>Your browser does not support the audio element.</audio></td>' +
+        '<td><audio controls><source src={2} type="audio/wav"/>Your browser does not support the audio element.</audio></td>' +
+        '<td><audio controls><source src={3} type="audio/wav"/>Your browser does not support the audio element.</audio></td>'.f(source_audio, target_audio, acvc_audio, baseline_audio);
+
+    document.getElementById('audio_table').appendChild(tr);
+};
+
+function load(){
+    generate_row("audio/p267_068.wav", "audio/p268_163.wav", "audio/p267_068_conv_p268_PPG.wav", "audio/p267_068_conv_p268_baseline.wav");
+    generate_row("audio/p267_071.wav", "audio/p256_028.wav", "audio/p267_071_conv_p256_PPG.wav", "audio/p267_071_conv_p256_baseline.wav");
+    generate_row("audio/p270_075.wav", "audio/p268_165.wav", "audio/p270_075_conv_p268_PPG.wav", "audio/p270_075_conv_p268_baseline.wav");
+    generate_row("audio/p270_153.wav", "audio/p316_351.wav", "audio/p270_153_conv_p316_PPG.wav", "audio/p270_153_conv_p316_baseline.wav");
+    generate_row("audio/p299_018.wav", "audio/p301_262.wav", "audio/p299_018_conv_p301_PPG.wav", "audio/p299_018_conv_p301_baseline.wav");
+    generate_row("audio/p299_224.wav", "audio/p252_063.wav", "audio/p299_224_conv_p252_PPG.wav", "audio/p299_224_conv_p252_baseline.wav");
+    generate_row("audio/p299_225.wav", "audio/p307_092.wav", "audio/p299_225_conv_p307_PPG.wav", "audio/p299_225_conv_p307_baseline.wav");
+    generate_row("audio/p311_036.wav", "audio/p256_043.wav", "audio/p311_036_conv_p256_PPG.wav", "audio/p311_036_conv_p256_baseline.wav");
+    generate_row("audio/p311_075.wav", "audio/p252_379.wav", "audio/p311_075_conv_p252_PPG.wav", "audio/p311_075_conv_p252_baseline.wav");
+    generate_row("audio/p311_330.wav", "audio/p307_267.wav", "audio/p311_330_conv_p307_PPG.wav", "audio/p311_330_conv_p307_baseline.wav");
+
+
+}
+
+</script>
+
+</body>
+</html>
