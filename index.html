@@ -38,9 +38,9 @@ String.prototype.format = String.prototype.f = function() {
 
 function generate_row(source_audio, target_audio, acvc_audio, baseline_audio){
     var tr = document.createElement('tr');
-    tr.innerHTML = '<td><audio controls><source src={0} type="audio/wav">Your browser does not support the audio element.</audio></td>' +
-        '<td><audio controls><source src={1} type="audio/wav"/>Your browser does not support the audio element.</audio></td>' +
-        '<td><audio controls><source src={2} type="audio/wav"/>Your browser does not support the audio element.</audio></td>' +
+    tr.innerHTML = '<td><audio controls><source src={0} type="audio/wav"/>Your browser does not support the audio element.</audio></td>'.f(source_audio, target_audio, acvc_audio, baseline_audio) +
+        '<td><audio controls><source src={1} type="audio/wav"/>Your browser does not support the audio element.</audio></td>'.f(source_audio, target_audio, acvc_audio, baseline_audio) +
+        '<td><audio controls><source src={2} type="audio/wav"/>Your browser does not support the audio element.</audio></td>'.f(source_audio, target_audio, acvc_audio, baseline_audio) +
         '<td><audio controls><source src={3} type="audio/wav"/>Your browser does not support the audio element.</audio></td>'.f(source_audio, target_audio, acvc_audio, baseline_audio);
 
     document.getElementById('audio_table').appendChild(tr);
@@ -57,8 +57,6 @@ function load(){
     generate_row("audio/p311_036.wav", "audio/p256_043.wav", "audio/p311_036_conv_p256_PPG.wav", "audio/p311_036_conv_p256_baseline.wav");
     generate_row("audio/p311_075.wav", "audio/p252_379.wav", "audio/p311_075_conv_p252_PPG.wav", "audio/p311_075_conv_p252_baseline.wav");
     generate_row("audio/p311_330.wav", "audio/p307_267.wav", "audio/p311_330_conv_p307_PPG.wav", "audio/p311_330_conv_p307_baseline.wav");
-
-
 }
 
 </script>
